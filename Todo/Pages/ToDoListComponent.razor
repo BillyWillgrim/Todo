@@ -1,12 +1,20 @@
-﻿<ul>
-    @foreach (var todoItem in TodoItems)
-    {
-        <li>
-            <input type="checkbox" name="Status" @bind="todoItem.Status" />
-            <label>@todoItem.Name</label>
-        </li>
-    }
-</ul>
+﻿<div class="container">
 
-<input type="text" @bind="@NewTodoItemName" />
-<button @onclick="@AddTodoItemToList">Add</button>
+    <ul class="flex w-full flex-wrap">
+        @foreach (var todoItem in TodoItems)
+        {
+            <li class="container w-full h-24">
+                <input type="checkbox" name="Status" @bind="todoItem.Status" />
+                <label>@todoItem.Name</label>
+            </li>
+        }
+
+    </ul>
+
+    <input type="text" @bind="@NewTodoItemName" />
+    <button class="btn btn-primary" @onclick="@AddTodoItemToList">Add</button>
+</div>
+
+
+
+
