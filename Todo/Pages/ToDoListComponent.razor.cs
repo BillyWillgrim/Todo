@@ -20,5 +20,10 @@ namespace Todo.Pages
             TodoItems.Add(new TodoItem() { Name = NewTodoItemName });
             NewTodoItemName = string.Empty;
         }
+
+        public void RemoveTodoItem(TodoItem item)
+        {
+            TodoItems.Remove(item);
+        }
     }
 }

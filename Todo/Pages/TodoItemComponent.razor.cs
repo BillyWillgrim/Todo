@@ -12,6 +12,7 @@ namespace Todo.Pages
     {
         [Parameter] public TodoItem TodoItem { get; set; }
 
+        [Parameter] public EventCallback<TodoItem> OnDelete { get; set; }
 
         public string NewName { get; set; }
 
@@ -28,9 +29,10 @@ namespace Todo.Pages
             Editing = false;
         }
 
-        public void Delete()
+        public async Task Delete()
         {
             Console.WriteLine($"Deleting {TodoItem.Name}");
+            await OnDelete.InvokeAsync(TodoItem);
         }
     }
 }

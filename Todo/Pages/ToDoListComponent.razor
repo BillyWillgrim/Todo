@@ -3,7 +3,7 @@
         <ul class="flex flex-row">
             @foreach (var todoItem in TodoItems.OrderBy(x => !x.Status))
             {
-                <TodoItemComponent TodoItem="@todoItem"></TodoItemComponent>
+                <TodoItemComponent TodoItem="@todoItem" OnDelete="RemoveTodoItem" ></TodoItemComponent>
             }
         </ul>
 
