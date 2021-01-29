@@ -1,18 +1,11 @@
 ﻿<div class="container  flex-col">
 
-    <div>
         <ul class="flex flex-row">
             @foreach (var todoItem in TodoItems.OrderBy(x => !x.Status))
             {
-<li class="p-6 m-2 bg-blue-50 rounded-xl shadow-md">
-    <input class="" type="checkbox" name="Status" @bind="todoItem.Status" />
-    <label class="font-mono text-lg">@todoItem.Name</label>
-</li>
-}
-
+                <TodoItemComponent TodoItem="@todoItem"></TodoItemComponent>
+            }
         </ul>
-    </div>
-
 
     <div class="flex flex-col">
         <label class="ml-1">Add a new todo item</label>
@@ -21,12 +14,6 @@
     </div>
 
     <button disabled="@IsInputEmpty" class="p-6 m-1 bg-blue-50 rounded-xl shadow-md font-mono text-lg" @onclick="@AddTodoItemToList">Add</button>
-
-
-
-
-
-
 
 </div>
 

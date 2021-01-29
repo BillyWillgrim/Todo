@@ -1,0 +1,20 @@
+﻿
+<li class="p-6 m-2 bg-blue-50 rounded-xl shadow-md">
+    <input class="" type="checkbox" name="Status" @bind="TodoItem.Status" />
+
+    @if (Editing)
+    {
+        <input @bind="@NewName" class="font-mono text-lg rounded border-2 m-2" />
+        <button class="" @onclick="Save">Save</button>
+    }
+    else
+    {
+        <label class="font-mono text-lg">@TodoItem.Name</label>
+        <button class="" @onclick="Edit">Edit</button>
+    }
+
+
+    
+
+</li>
+
