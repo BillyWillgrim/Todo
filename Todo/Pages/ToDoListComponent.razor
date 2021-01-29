@@ -1,24 +1,33 @@
-﻿<div class="container  flex-col" >
+﻿<div class="container  flex-col">
 
     <div>
         <ul class="flex flex-row">
-            @foreach (var todoItem in TodoItems)
+            @foreach (var todoItem in TodoItems.OrderBy(x => !x.Status))
             {
-                <li class="p-6 m-1 bg-blue-100 rounded-xl shadow-md">
-                    <input class="" type="checkbox" name="Status" @bind="todoItem.Status" />
-                    <label class="font-mono text-lg">@todoItem.Name</label>
-                </li>
-            }
+<li class="p-6 m-2 bg-blue-50 rounded-xl shadow-md">
+    <input class="" type="checkbox" name="Status" @bind="todoItem.Status" />
+    <label class="font-mono text-lg">@todoItem.Name</label>
+</li>
+}
 
         </ul>
     </div>
-     
-    
-    <div class="">
-        <input class="p-6 m-1 border-2 rounded-xl " type="text" @bind="@NewTodoItemName" />
-        <button class="p-6 m-1 bg-blue-100 rounded-xl shadow-md font-mono text-lg" @onclick="@AddTodoItemToList">Add</button>
+
+
+    <div class="flex flex-col">
+        <label class="ml-1">Add a new todo item</label>
+        <input class="p-6 m-1 border-2 rounded-xl shadow-md" type="text" @bind="@NewTodoItemName" />
+        <label class="@(IsInputEmpty ? "" : "hidden") ml-1 text-red-500">Input required!</label>
     </div>
-    
+
+    <button disabled="@IsInputEmpty" class="p-6 m-1 bg-blue-50 rounded-xl shadow-md font-mono text-lg" @onclick="@AddTodoItemToList">Add</button>
+
+
+
+
+
+
+
 </div>
 
 
